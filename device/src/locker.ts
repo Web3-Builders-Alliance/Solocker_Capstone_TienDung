@@ -25,7 +25,7 @@ async function startListeningToLedSwitchAccount() {
         ],
         program.programId,
     )[0];
-
+    console.log("account pda", accountPDA);
     const lockStatePDA = await program.account.lockState.fetch(accountPDA)
 
     console.log(JSON.stringify(lockStatePDA));
