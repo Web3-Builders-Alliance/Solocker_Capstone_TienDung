@@ -1,0 +1,46 @@
+{
+  "name": "solution",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint",
+    "proxy": "local-ssl-proxy --source 3001 --target 3000"
+  },
+  "dependencies": {
+    "@next/font": "latest",
+    "@solana/pay": "latest",
+    "@solana/spl-token": "latest",
+    "@coral-xyz/anchor": "latest",
+    "@solana/wallet-adapter-react": "latest",
+    "@solana/wallet-adapter-react-ui": "latest",
+    "@solana/wallet-adapter-wallets": "latest",
+    "@solana/web3.js": "latest",
+    "@types/node": "latest",
+    "@types/qrcode": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "bigint-buffer": "latest",
+    "bignumber.js": "latest",
+    "borsh": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "next": "latest",
+    "qrcode": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "sha256": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "encoding": "latest",
+    "local-ssl-proxy": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "ts-loader": "latest",
+    "typescript": "latest"
+  }
+}
