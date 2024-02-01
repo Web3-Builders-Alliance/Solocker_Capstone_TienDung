@@ -10,10 +10,10 @@ ws.on('open', () => {
     id: 1,
     method: 'accountSubscribe',
     params: [
-      '9w5mNyu2vfpG2ATs1whoe6kvPdD7FWEHYUZVWVPk1VpR',
+      'E8ErhWi252vBcqbmMb3ZR6UBYKmYyk5PDXAGps874QT8',
       {
-        encoding: 'jsonParsed',
-        commitment: 'finalized'
+        encoding: 'base58',
+        commitment: 'confirmed'
       }
     ]
   };
@@ -22,16 +22,17 @@ ws.on('open', () => {
 });
 
 ws.on('message', (data) => {
-  // Convert the Buffer to a string
+  
+   
   const messageString = data.toString('utf-8');
-
-  try {
-    // Parse the string as JSON
-    const messageJSON = JSON.parse(messageString);
-    console.log('Received message:', messageJSON);
-  } catch (error) {
-    console.error('Error parsing JSON:', error);
-  }
+  console.log(messageString); 
+  // try {
+  //   // Parse the string as JSON
+  //   const messageJSON = JSON.parse(messageString);
+  //   console.log('Received message:', messageJSON);
+  // } catch (error) {
+  //   console.error('Error parsing JSON:', error);
+  // }
 });
 
 ws.on('close', (code, reason) => {

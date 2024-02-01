@@ -70,7 +70,7 @@ export default function Home() {
                 <p className='text-sm text-gray-700 my-4'>
                   Solana Locker
                   <br></br>
-                  Scan the QR code to switch the LED on/off via a Solana pay transaction request.
+                  Scan the QR code to unlock via a Solana pay transaction request.
                 </p>
 
                 <h2 className='mt-8 text-4xl'>

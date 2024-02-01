@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("3xf2u5H4qGaQJbrW5gkcpE38NrXJN5Duru7wtdkjHbcX");
+declare_id!("DmuXJCtZ2sC7faktVCDxiPCJwhGMuZiAbXypwSLrjmMf");
 
 #[program]
 pub mod solocker {
@@ -8,23 +8,14 @@ pub mod solocker {
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         ctx.accounts.lock_state.is_open = false;
-        Ok(())
-    }
-    pub fn lock(ctx: Context<Lock>) -> Result<()> {
-        if ctx.accounts.lock_state.is_open != true {
-            return Err(ErrorCode::AlreadyLocked.into());
-        }
-        ctx.accounts.lock_state.is_open = false;
         ctx.accounts.lock_state.authority = *ctx.accounts.authority.key;
         Ok(())
     }
+    pub fn lock(ctx: Context<Lock>) -> Result<()> {
+        ctx.accounts.lock_state.is_open = false;
+        Ok(())
+    }
     pub fn unlock(ctx: Context<Lock>) -> Result<()> {
-        if ctx.accounts.lock_state.is_open != false {
-            return Err(ErrorCode::AlreadyUnlocked.into());
-        }
-        if ctx.accounts.lock_state.authority != *ctx.accounts.authority.key {
-            return Err(ErrorCode::Unauthorized.into());
-        }
         ctx.accounts.lock_state.is_open = true;
         Ok(())
     }
@@ -58,8 +49,4 @@ pub struct LockState {
 pub enum ErrorCode {
     #[msg("You are not the one who locked this locker")]
     Unauthorized,
-    #[msg("Locker is already locked")]
-    AlreadyLocked,
-    #[msg("Locker is already unlocked")]
-    AlreadyUnlocked,
 }
